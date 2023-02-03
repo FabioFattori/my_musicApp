@@ -24,18 +24,38 @@ class _SongsState extends State<Songs> {
       title: btn(
         path: files[i],
         player: widget.player,
-        store:widget.storage,
+        store: widget.storage,
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return (ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemCount:files.length,
-        itemBuilder: (BuildContext context, int position) {
-          return _buildRow(position);
-        }));
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.all(5),
+          child: TextField(
+            onChanged: (value) {
+              setState(() {
+                files = widget.storage.GivenAStringGetFiles(value);
+              });
+            },
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Cerca una canzone',
+            ),
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              itemCount: files.length,
+              itemBuilder: (BuildContext context, int position) {
+                return _buildRow(position);
+              }),
+        )
+      ],
+    );
   }
 }

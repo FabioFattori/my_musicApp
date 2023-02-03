@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:my_music/Storage.dart';
@@ -95,7 +94,6 @@ class _HomeState extends State<Home> {
           mainAxisSize: MainAxisSize.min,
           verticalDirection: VerticalDirection.down,
           children: [
-            
             Container(
               padding: const EdgeInsets.only(bottom: 30, top: 20),
               child: Text(currentSong),
@@ -137,15 +135,15 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
-                        mini: true,
-                        onPressed: () {
-                          setState(() {
-                            shuffle = !shuffle;
-                          });
-                        },
-                        tooltip: 'shuffle',
-                        child: const Icon(Icons.shuffle),
-                      ),
+                  mini: true,
+                  onPressed: () {
+                    setState(() {
+                      shuffle = !shuffle;
+                    });
+                  },
+                  tooltip: 'shuffle',
+                  child: const Icon(Icons.shuffle),
+                ),
                 repeat
                     ? FloatingActionButton(
                         mini: true,

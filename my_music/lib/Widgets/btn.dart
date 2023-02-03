@@ -19,34 +19,22 @@ class btn extends StatefulWidget {
 class _btnState extends State<btn> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: 
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    widget.player.play(AssetSource(widget.path));
-                    widget.store.GivenAPathUpdatePos(widget.path);
-                    setState(() {
-                      isPlaying = true;
-                    });
-                  },
-                  child: Text(
-                    widget.store.getName(widget.path),
-                    style: const TextStyle(fontSize: 14.5),
-                  ),
-                ),
-                const Divider(
-                  
-                )
-              ],
-            ),
-          ),
-        
-      
+    return TextButton(
+      onPressed: () {
+        widget.player.play(AssetSource(widget.path));
+        widget.store.GivenAPathUpdatePos(widget.path);
+        setState(() {
+          isPlaying = true;
+        });
+      },
+
+      //padding: const EdgeInsets.only(right: 13.0),
+      child: Text(
+        widget.store.getName(widget.store.getName(widget.path)),
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(fontSize: 15.5),
+        textAlign: TextAlign.start,
+      ),
     );
   }
 }
